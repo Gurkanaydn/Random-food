@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <input type="button" id="button1" value="Food List">
+    <input type="button" id="button2" value="Random Food">
+
+    <div id="text"></div>
+
+
+
+</head>
+
+<body>
+
+    <script>
+
+
+
+        document.querySelector("#button1").addEventListener("click", getData);
+        document.querySelector("#button2").addEventListener("click", randomfood);
+        function getData() {
+
+            fetch('https://www.themealdb.com/api/json/v1/1/categories.php?strCategory=chicken')
+                .then(response => response.json())
+                .then(data => {
+                    
+                    veri = data.categories.map(item => item.strCategory);
+                    console.log("Foods:  "+veri);
+                
+
+
+                }
+                )
+
+        }
+
+
+        function randomfood() {
+            var rand = veri[Math.floor(Math.random() * veri.length)];
+            console.log(rand);
+
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
