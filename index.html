@@ -10,9 +10,9 @@
 
     <input type="button" id="button1" value="Food List">
     <input type="button" id="button2" value="Random Food">
-
+    
     <div id="text"></div>
-
+    <div id="text1"></div>
 
 
 </head>
@@ -32,7 +32,8 @@
                 .then(data => {
                     
                     veri = data.categories.map(item => item.strCategory);
-                    console.log("Foods:  "+veri);
+                    console.log("Foods:  "+veri );
+                    document.getElementById("text").innerHTML = "Foods:  "+veri;
                 
 
 
@@ -45,6 +46,7 @@
         function randomfood() {
             var rand = veri[Math.floor(Math.random() * veri.length)];
             console.log(rand);
+            document.getElementById("text1").innerHTML = rand;
 
         }
 
